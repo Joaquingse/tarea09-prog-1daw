@@ -1,0 +1,3 @@
+Haytham Kenway,Abstergo,8
+Rodrigo Borgia,Orden del Temple,9
+César Borgia,Orden del Temple,10
