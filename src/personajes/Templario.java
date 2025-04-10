@@ -16,6 +16,10 @@ public class Templario extends Personaje implements Comparator, Serializable {
     private String organizacion;
     private int nivel_peligrosidad;
 
+    public Templario() {
+        super("");
+    }
+
     public Templario(String nombre, String organizacion, int nivel_peligrosidad) {
         super(nombre);
         this.organizacion = organizacion;

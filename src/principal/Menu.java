@@ -11,6 +11,7 @@ import personajes.RangoAsesinos;
 import personajes.Templario;
 import universo.Gremio;
 import universo.Temple;
+import universo.ComparadorTemplarios;
 import java.io.File;
 
 /**
@@ -181,8 +182,8 @@ public class Menu {
                                 String organizacion = sc.nextLine();
                                 System.out.println("Nivel de peligrosisdad");
                                 int peligro = sc.nextInt();
-                                temple.cargarTemplariosDesdeArchivo(templariosList);
                                 Templario templario = new Templario(nombre, organizacion, peligro);
+                                temple.cargarTemplariosDesdeArchivo(templariosList);
                                 temple.insertar(templario);
                                 System.out.println("Añadiendo templario");
                             }

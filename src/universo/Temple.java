@@ -83,15 +83,17 @@ public class Temple {
 
     public TreeSet<Templario> cargarTemplariosDesdeArchivo(String nombreArchivo) {
         File archivo = new File(nombreArchivo);
-        TreeSet<Templario> templarios = new TreeSet<>();
+        TreeSet<Templario> templarios = new TreeSet<>(new ComparadorTemplarios());
         ObjectInputStream leer = null;
         try {
             leer = new ObjectInputStream(new FileInputStream(archivo));
+            System.out.println(leer.readObject().toString());
             templarios = (TreeSet<Templario>) leer.readObject();
         } catch (FileNotFoundException fnf) {
             System.out.println("No se encuentra el archivo: " + fnf.getMessage());
         } catch (IOException ioe) {
-            System.out.println("Hay un error " + ioe.getMessage());
+            System.out.println("Hay un error:");
+            ioe.printStackTrace();
         } catch (ClassNotFoundException ex) {
             System.out.println("Ha ocurrido un error: " + ex.getMessage());
         } finally {
@@ -103,7 +105,7 @@ public class Temple {
                 System.err.println("Error, el archivo no ha podido cerrarse: " + ex.getMessage());
             }
         }
-        return lista_templarios = templarios;
+        return this.lista_templarios = templarios;
     }
 
     public void exportarDAtos(String nombreArchivo) {
@@ -130,7 +132,7 @@ public class Temple {
     public TreeSet<Templario> importarDAtos(String nombreArchivo) {
         File archivo = new File(nombreArchivo);
         BufferedReader br = null;
-        TreeSet<Templario> nuevaLista = new TreeSet<>();
+        TreeSet<Templario> nuevaLista = new TreeSet<>(new ComparadorTemplarios());
         String linea;
         try {
             br = new BufferedReader(new FileReader(archivo));
@@ -155,6 +157,6 @@ public class Temple {
                 System.err.println("Error, el archivo no ha podido cerrarse: " + ex.getMessage());
             }
         }
-        return lista_templarios = nuevaLista;
+        return this.lista_templarios = nuevaLista;
     }
 }
