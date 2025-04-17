@@ -36,7 +36,16 @@ public class Temple {
     }
 
     public boolean eliminar(String nombre) {
-        return lista_templarios.remove(new Templario(nombre, null, 0));
+        boolean resultado = false;
+        Iterator i = lista_templarios.iterator();
+        Templario t;
+        while (i.hasNext()) {
+            t = (Templario) i.next();
+            if (t.getNombre().equals(nombre)) {
+                i.remove();
+            }
+        }
+        return resultado;
     }
 
     public void mostrar(boolean ascendente) {
@@ -92,8 +101,7 @@ public class Temple {
         } catch (FileNotFoundException fnf) {
             System.out.println("No se encuentra el archivo: " + fnf.getMessage());
         } catch (IOException ioe) {
-            System.out.println("Hay un error:");
-            ioe.printStackTrace();
+            System.out.println("Hay un error: " + ioe.getMessage());
         } catch (ClassNotFoundException ex) {
             System.out.println("Ha ocurrido un error: " + ex.getMessage());
         } finally {

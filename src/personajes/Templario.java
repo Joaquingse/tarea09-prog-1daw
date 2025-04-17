@@ -16,10 +16,6 @@ public class Templario extends Personaje implements Comparator, Serializable {
     private String organizacion;
     private int nivel_peligrosidad;
 
-    public Templario() {
-        super("");
-    }
-
     public Templario(String nombre, String organizacion, int nivel_peligrosidad) {
         super(nombre);
         this.organizacion = organizacion;
@@ -47,7 +43,19 @@ public class Templario extends Personaje implements Comparator, Serializable {
         Templario t1, t2;
         t1 = (Templario) o1;
         t2 = (Templario) o2;
-        return t1.nivel_peligrosidad - t2.nivel_peligrosidad;
+
+        int resultado = Integer.compare(t1.getNivel_peligrosidad(), t2.getNivel_peligrosidad());
+
+        // Si son iguales, utiliza otro criterio (organización):
+        if (resultado == 0) {
+            resultado = t1.getOrganizacion().compareTo(t2.getOrganizacion());
+            // Si aún son iguales, compara por nombre:
+            if (resultado == 0) {
+                resultado = t1.getNombre().compareTo(t2.getNombre());
+            }
+        }
+
+        return resultado;
     }
 
     @Override

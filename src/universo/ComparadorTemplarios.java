@@ -19,7 +19,7 @@ public class ComparadorTemplarios implements Comparator, Serializable {
         Templario t1 = (Templario) o1;
         Templario t2 = (Templario) o2;
 
-        return t1.getNivel_peligrosidad() - t2.getNivel_peligrosidad();
+        return t1.compare(t1, t2);
     }
 
 }
