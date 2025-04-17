@@ -96,7 +96,6 @@ public class Temple {
         ObjectInputStream leer = null;
         try {
             leer = new ObjectInputStream(new FileInputStream(archivo));
-            System.out.println(leer.readObject().toString());
             templarios = (TreeSet<Templario>) leer.readObject();
         } catch (FileNotFoundException fnf) {
             System.out.println("No se encuentra el archivo: " + fnf.getMessage());

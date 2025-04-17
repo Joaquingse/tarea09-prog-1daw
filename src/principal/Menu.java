@@ -200,7 +200,7 @@ public class Menu {
                             }
                             case 4 -> {
                                 temple.cargarTemplariosDesdeArchivo(templariosList);
-                                temple.mostrar(true);
+                                temple.mostrar(false);
                             }
                             case 5 -> {
                                 temple.exportarDAtos(templariosTxt);

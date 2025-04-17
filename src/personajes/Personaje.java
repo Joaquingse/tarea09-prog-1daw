@@ -4,11 +4,13 @@
  */
 package personajes;
 
+import java.io.Serializable;
+
 /**
  *
  * @author mery
  */
-public abstract class Personaje {
+public abstract class Personaje implements Serializable {
 
     protected String nombre;
 
