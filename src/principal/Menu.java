@@ -11,8 +11,6 @@ import personajes.RangoAsesinos;
 import personajes.Templario;
 import universo.Gremio;
 import universo.Temple;
-import universo.ComparadorTemplarios;
-import java.io.File;
 
 /**
  *
@@ -97,15 +95,6 @@ public class Menu {
     }
 
     public void iniciarMenu() {
-        boolean carpeta = new File("data").mkdirs();
-        if (!carpeta) {
-            if (carpeta) {
-                System.out.println("Directorio 'data' creado correctamente.");
-            } else {
-                System.out.println("No se pudo crear el directorio 'data'.");
-            }
-        }
-
         Scanner sc = new Scanner(System.in);
         int opcionPrincipal;
         int opcionSub;

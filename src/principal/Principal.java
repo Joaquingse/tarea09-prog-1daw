@@ -5,6 +5,7 @@
 package principal;
 
 import cosas.Artefacto;
+import java.io.File;
 import personajes.Asesino;
 import personajes.RangoAsesinos;
 import personajes.Templario;
@@ -23,6 +24,15 @@ public class Principal {
     public static void main(String[] args) {
         Gremio gremio = new Gremio();
         Temple temple = new Temple();
+
+        boolean carpeta = new File("data").mkdirs();
+        if (!carpeta) {
+            if (carpeta) {
+                System.out.println("Directorio 'data' creado correctamente.");
+            } else {
+                System.out.println("No se pudo crear el directorio 'data'.");
+            }
+        }
 
         String asesinosListBin = "data\\asesinos.bin";
         String templariosList = "data\\templarios.dat";
